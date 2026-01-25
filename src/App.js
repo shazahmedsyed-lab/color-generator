@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import ColorField from './colorField';
+import SearchBox from './SearchBox';
+import Header from './Header';
+// import colorNames from 'colornames';
+import Footer from './Footer';
 
 function App() {
+  const[colorValue, setColorValue] = useState('')
+  const[hexValue,setHexValue] = useState('')
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Header/>
+
+       <ColorField 
+       colorValue = {colorValue}
+       hexValue = {hexValue}
+       />
+       <SearchBox
+       colorValue = {colorValue}
+       setColorValue = {setColorValue}
+       setHexValue = {setHexValue}
+       />
+       <Footer/>
+     </div>
   );
 }
 
